@@ -1,6 +1,29 @@
 % Load the data in
 trainData = load('train.csv');
 
+% Get the types into separate matrices
+spruceIdx = (trainData(:,56) == 1);
+spruce = trainData(spruceIdx,:);
+
+lodgepolePineIdx = (trainData(:,56) == 2);
+lodgepolePine = trainData(lodgepolePineIdx,:);
+
+ponderosaPineIdx = (trainData(:,56) == 3);
+ponderosaPine = trainData(ponderosaPineIdx,:);
+
+willowIdx = (trainData(:,56) == 4);
+willow = trainData(willowIdx,:);
+
+aspenIdx = (trainData(:,56) == 5);
+aspen = trainData(aspenIdx,:);
+
+douglasIdx = (trainData(:,56) == 6);
+douglas = trainData(douglasIdx,:);
+
+krummholzIdx = (trainData(:,56) = 7);
+krummholz = trainData(krummholzIdx,:);
+
+
 % Partition the train datas columns into named variables
 Id = trainData(:, 1);
 Elevation = trainData(:, 2);
