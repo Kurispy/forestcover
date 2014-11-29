@@ -36,3 +36,15 @@ trainOutput = [];
 [neuralNet, L] = nntrain(neuralNet, trainData, yTrain, opts);
 
 L
+
+% Now with tanh
+neuralNet = nnsetup([56 10 numClasses]);
+neuralNet.activation_function = 'tanh_opt';
+neuralNet.learningRate = 2;
+opts.numepochs = 50;
+opts.batchsize = 5;
+opts.plot = 1;
+
+[neuralNet, L] = nntrain(neuralNet, trainData, yTrain, opts);
+
+L
