@@ -5,7 +5,7 @@ addpath(genpath('DeepLearnToolbox'));
 addpath(genpath('common'));
 
 % Load the train data if needed
-if (exist("mergedData", "var") == 0)
+if (exist('mergedData', 'var') == 0)
 	loadTrainData;
 end
 
