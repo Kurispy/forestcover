@@ -4,47 +4,29 @@ addpath(genpath('DeepLearnToolbox'));
 % Add common code
 addpath(genpath('common'));
 
-% Load the train data
-loadTrainData;
+% Load the train data if needed
+if (exist("mergedData", "var") == 0)
+	loadTrainData;
+end
 
 % Create neural net targeted output
-numClasses = 7;
 yTrain = zeros(size(trainData, 1), numClasses);
-for i = 1:numClasses
-	for j = 1:size(trainData, 1)
-		if (trainData(j, 56) == i)
-			yTrain(j, i) = 1;
-		end
-	endfor
+for i = 1:numTrainSamples
+	yTrain(i, classification(i)) = 1;
 endfor
 
-% Construct 3 layer ANN with 10 hidden nodes and 7 output nodes for all features
-neuralNet = nnsetup([56 10 numClasses]);
-neuralNet.activation_function = 'sigm';
-neuralNet.learningRate = 2;
-opts.numepochs = 50;
-opts.batchsize = 5;
-opts.plot = 1;
+% Normalize
+[normFeatures, mu, sigma] = zscore(features);
 
-% Train on each sample...
-trainWeights = [];
-trainError = [];
-trainHiddenError = [];
-trainOutput = [];
+% Construct 3 layer ANN with 5 hidden nodes and 7 output nodes for all features
+neuralNet = nnsetup([size(features, 2) 5 numClasses]);
+neuralNet.activation_function = 'sigm';
+neuralNet.learningRate = 0.5;
+opts.numepochs = 50;
+opts.batchsize = 105;
+opts.plot = 1;
 
 % Train
-[neuralNet, L] = nntrain(neuralNet, trainData, yTrain, opts);
-
-L
-
-% Now with tanh
-neuralNet = nnsetup([56 10 numClasses]);
-neuralNet.activation_function = 'tanh_opt';
-neuralNet.learningRate = 2;
-opts.numepochs = 50;
-opts.batchsize = 5;
-opts.plot = 1;
-
-[neuralNet, L] = nntrain(neuralNet, trainData, yTrain, opts);
+[neuralNet, L] = nntrain(neuralNet, normFeatures, yTrain, opts);
 
 L
