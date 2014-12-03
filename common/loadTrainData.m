@@ -91,10 +91,12 @@ douglas = trainData(douglasIdx,:);
 krummholzIdx = (trainData(:,13) == 7);
 krummholz = trainData(krummholzIdx,:);
 
-mdl = fitcknn(features,classification);
-mdl.NumNeighbors = 4;
+labels = doKNNClassification(features, classification, testData);
+%
+%mdl = fitcknn(features,classification);
+%mdl.NumNeighbors = 4;
 
-[label,score,cost] = predict(mdl,testData);
+%[label,score,cost] = predict(mdl,testData);
 predictedCover = zeros(numTestSamples, 2);
 predictedCover(:,1) = testIdx;
 predictedCover(:,2) = label;
