@@ -12,7 +12,7 @@ end
 % Create neural net targeted output
 yTrain = zeros(size(trainData, 1), numClasses);
 for i = 1:numTrainSamples
-	yTrain(i, classification(i)) = 1;
+	yTrain(i, classification(i)) = 0.9;
 endfor
 
 % Normalize
@@ -23,7 +23,7 @@ selectFeatures = normFeatures(:,12);
 selectFeatures = [normFeatures(:,1) selectFeatures];
 
 % Construct 3 layer ANN with 5 hidden nodes and 7 output nodes for all features
-neuralNet = nnsetup([size(selectFeatures, 2) 5 numClasses]);
+neuralNet = nnsetup([size(selectFeatures, 2) 3 4 numClasses]);
 neuralNet.activation_function = 'sigm';
 neuralNet.learningRate = 1;
 opts.numepochs = 100;
