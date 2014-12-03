@@ -9,6 +9,11 @@ if (exist('mergedData', 'var') == 0)
 	loadTrainData;
 end
 
+% Load the test data if needed (warning: takes a LONG time)
+if (exist('mergedTestData', 'var') == 0) 
+	loadTestData;
+end
+
 % Create neural net targeted output
 yTrain = zeros(size(trainData, 1), numClasses);
 for i = 1:numTrainSamples
