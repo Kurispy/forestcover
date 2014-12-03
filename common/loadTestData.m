@@ -28,4 +28,4 @@ for i = 1:numTestSamples
 	endfor
 endfor
 
-testData = mergedTestData;
+testFeatures = mergedTestData;
