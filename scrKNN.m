@@ -10,7 +10,7 @@ data = load('covtype.data');
 % Merge redundant columns...
 numSamples = size(data, 1);
 numClasses = 7;
-mergedData = zeros(numSamples, 
+mergedData = zeros(numSamples, 14);
 %13);
 for i = 1:numSamples
 	% Copy over the initial features...
