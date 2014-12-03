@@ -33,7 +33,8 @@ endfor
 
 trainData = mergedData;
 features = trainData;
-features(:,13) = [];
+features(:,13) = []; % Get rid of cover type
+features(:,1) = []; % Get rid of unique id
 classification = trainData(:, 13);
 
 % Get the types into separate matrices
