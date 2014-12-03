@@ -13,7 +13,7 @@ randomforestclf <- function(){
   cols <- names(train)[1:54]
   response <- names(train)[55]
   
-  system.time(clf <- randomForest(train[,cols], y = factor(train[,response])))
+  clf <- randomForest(train[,cols], y = factor(train[,response]))
   
   plot(clf)
   
