@@ -88,7 +88,7 @@ classification = data(:, 55);
 
 %for getting up to speed, I'm going to trim the dataset to 10% of its
 %original size.
-idx = crossvalind('holdout',classification,0.9);
+idx = crossvalind('holdout',classification,0.95);
 
 features=features(idx,:);
 classification=classification(idx,:);
@@ -130,7 +130,7 @@ fprintf('Percentage of test set correctly categorized (basic KNN): %f\n', pctCor
 % Call LMNN to get the initiate linear transformation
 fprintf('\n')
 disp('Learning initial metric with LMNN ...')
-[L,~] = lmnn2(xTr, yTr, 'maxiter',1000);
+[L,~] = lmnn2(xTr, yTr, 'maxiter',500);
 %,3,L0,'maxiter',1000,'quiet',1,'outdim',3,'mu',0.5,'validation',0.2,'earlystopping',25,'subsample',0.3);
 % KNN classification error after metric learning using LMNN
 errL=knncl(L,xTr, yTr,xTe,yTe,1);fprintf('\n');
