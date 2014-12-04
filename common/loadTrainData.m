@@ -55,5 +55,5 @@ aspen = trainData(aspenIdx,:);
 douglasIdx = (trainData(:,13) == 6);
 douglas = trainData(douglasIdx,:);
 
-krummholzIdx = (trainData(:,13) = 7);
+krummholzIdx = (trainData(:,13) == 7);
 krummholz = trainData(krummholzIdx,:);
