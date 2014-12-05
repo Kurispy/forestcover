@@ -26,7 +26,7 @@ fflush(stdout);
 printf('Random 75% 25% split...');
 fflush(stdout);
 
-numTestSamples = int32(size(trainData, 1) * 0.25);
+numTestSamples = int32(size(mergedData, 1) * 0.25);
 
 index = 1:size(mergedData, 1);
 index = index(randperm(length(index)));
