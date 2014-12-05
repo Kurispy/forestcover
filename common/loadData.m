@@ -17,7 +17,11 @@ mergedData = zeros(numSamples, 13);
 
 [wilderness, ~] = find(UCICoverTypeData(:,11:14)');
 [soil, ~] = find(UCICoverTypeData(:,15:54)');
-mergedData = [UCICoverTypeData(:, 1:10) wilderness soil UCICoverTypeData(:, 55)];
+mergedData = [UCICoverTypeData(:, 1:10) wilderness soil];
+
+% Normalize features
+[mergedData, ~, ~] = zscore(mergedData);
+mergedData = [mergedData UCICoverTypeData(:, 55)];
 
 printf(' Done\n');
 fflush(stdout);
