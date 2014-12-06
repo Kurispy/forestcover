@@ -2,7 +2,7 @@ library(randomForest)
 
 # K-Fold Cross Validation
 randomforestcv <- function(k) {
-  #k = 10
+  OOB <- rep(0,12)
   rawdata <- read.csv("./covtype.data", header = F)
   
   s = nrow(rawdata)
@@ -25,30 +25,39 @@ randomforestcv <- function(k) {
   
   foldSize = floor(s/k)
   
-  for(i in 1:1) {
-    startIndex = (i - 1) * (foldSize+1)
-    endIndex = i * foldSize
-    range = startIndex:endIndex
+  for(i in 1:12) {
     
-    train <- data[-range,]
-    test <- data[range,]
+    range = sample(1:s, 2*foldSize, replace = FALSE) #pick random samples from data
     
-    clf <- randomForest(x = train[,cols], y = factor(train[,response]), xtest = test[,cols], ytest = factor(test[,response]), mtry = 4, ntree = 40)
+    train <- data[range,]
+    test <- data[-range,]
+    
+    clf <- randomForest(x = train[,cols], y = factor(train[,response]), xtest = test[,cols], ytest = factor(test[,response]), mtry = i, ntree = 40)
     
     testans <- clf$test
     
+    err <- clf$err.rate
+    
     predictions <- testans$predicted
+    
+    OOB[i] <- err[clf$ntree,"OOB"]
     
     #Calculate Classification Accuracy
     classifications <- ifelse(predictions == factor(test[,response]), 1, 0)
     accuracy <- mean(classifications)
     
-    cat("Classification Accuracy: ")
-    cat(accuracy)
+    #cat("mtry: ", i, "\n")
+    #cat("Classification Accuracy: ", accuracy, clf$test$err.rate[clf$ntree, "Test"], "\n")
+    #cat(colnames(err), "\n")
+    #cat("OOB err rate: ", err[40,1], "\n")
     
-    plot(clf)
+    #print(clf)
+    
+    #plot(clf)
+    rm(list = c("clf","train","test","testans","classifications","accuracy", "err"))   
     #return(clf)
     # auc = roc.area(test[,1], prediction)$A
     # print("AUC = ", auc)
   }
+  plot(1:12, OOB, type = 'b', xlab = "mtry")
 }
