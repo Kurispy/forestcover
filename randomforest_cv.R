@@ -2,25 +2,51 @@ library(randomForest)
 
 # K-Fold Cross Validation
 randomforestcv <- function(k) {
+  #k = 10
   rawdata <- read.csv("./covtype.data", header = F)
   
-  cols = names(rawdata)[2:54]
-  response <- names(rawdata)[55]
+  s = nrow(rawdata)
+  wilderness_area = rep(0,s)
+  soil_type = rep(0,s)
   
-  foldSize = floor(nrow(rawdata)/k)
+  #Merge Columns
+  for (i in 11:14){
+    wilderness_area = ifelse(rawdata[,i] == 1, i-10, wilderness_area)
+  }
   
-  for(i in 1:k) {
+  for (i in 15:54){
+    soil_type = ifelse(rawdata[,i] == 1, i-14, soil_type)
+  }
+  
+  data = cbind(rawdata[,1:10],wilderness_area,soil_type,rawdata[,55])
+  
+  cols = names(data)[1:12]
+  response <- names(data)[13]
+  
+  foldSize = floor(s/k)
+  
+  for(i in 1:1) {
     startIndex = (i - 1) * (foldSize+1)
     endIndex = i * foldSize
     range = startIndex:endIndex
     
-    train <- rawdata[-range,]
-    test <- rawdata[range,]
+    train <- data[-range,]
+    test <- data[range,]
     
-    clf <- randomForest(train[,cols], y = factor(train[,response]))
+    clf <- randomForest(x = train[,cols], y = factor(train[,response]), xtest = test[,cols], ytest = factor(test[,response]), mtry = 4, ntree = 40)
     
-    prediction = predict(clf, newdata = test[,response], type="prob")[,2]
+    testans <- clf$test
     
+    predictions <- testans$predicted
+    
+    #Calculate Classification Accuracy
+    accuracy < - mean(ifelse(predicitons == factor(test[,response]), 1, 0))
+    
+    cat("Classification Accuracy: ")
+    cat(accuracy)
+    
+    plot(clf)
+    #return(clf)
     # auc = roc.area(test[,1], prediction)$A
     # print("AUC = ", auc)
   }
