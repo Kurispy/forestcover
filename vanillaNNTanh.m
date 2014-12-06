@@ -53,14 +53,11 @@ for i = 1:10
 
 	opts.batchsize = size(yTrain, 1) / 2;
 
-	% Normalize
 	features = trainData(:, 1:12);
 	testFeatures = testData(:, 1:12);
-	[normFeatures, mu, sigma] = zscore(features);
-	[normTestFeatures, mu, sigma] = zscore(testFeatures);
 
-	[neuralNet, L] = nntrain(neuralNet, normFeatures, yTrain, opts);
-	[err, bad] = nntest(neuralNet, normTestFeatures, yTest);
+	[neuralNet, L] = nntrain(neuralNet, features, yTrain, opts);
+	[err, bad] = nntest(neuralNet, testFeatures, yTest);
 
 	err
 	fflush(stdout);
