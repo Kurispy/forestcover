@@ -4,38 +4,80 @@ addpath(genpath('DeepLearnToolbox'));
 % Add common code
 addpath(genpath('common'));
 
-% Load the train data if needed
+% Load the data
 if (exist('mergedData', 'var') == 0)
-	loadTrainData;
+	loadData;
 end
 
-% Load the test data if needed (warning: takes a LONG time)
-if (exist('mergedTestData', 'var') == 0) 
-	loadTestData;
-end
+printf('Loaded data successfully\n');
+printf('Creating Neural Network...\n');
+fflush(stdout);
 
 % Create neural net targeted output
-yTrain = zeros(size(trainData, 1), numClasses);
-for i = 1:numTrainSamples
-	yTrain(i, classification(i)) = 0.9;
+printf('Creating targeted output...');
+fflush(stdout);
+
+targetedOutput = zeros(size(mergedData, 1), numClasses);
+for i = 1:size(mergedData, 1)
+	targetedOutput(i, mergedData(i, 13)) = 1;
 endfor
 
-% Normalize
-[normFeatures, mu, sigma] = zscore(features);
+printf(' Done\n');
+fflush(stdout);
 
-% Select features soil type and elevation
-selectFeatures = normFeatures(:,12);
-selectFeatures = [normFeatures(:,1) selectFeatures];
-
-% Construct 3 layer ANN with 5 hidden nodes and 7 output nodes for all features
-neuralNet = nnsetup([size(selectFeatures, 2) size(selectFeatures, 2) numClasses]);
+% Construct 3 layer ANN with 5 hidden nodes and 7 output nodes for 2 selected features (soil type, elevation)
+% Using L2 regularization
+neuralNet = nnsetup([2 5 numClasses]);
 neuralNet.activation_function = 'tanh_opt';
-neuralNet.learningRate = 1;
-opts.numepochs = 100;
-opts.batchsize = 105;
-opts.plot = 1;
+neuralNet.learningRate = 1.5;
+neuralNet.weightPenaltyL2 = 1e-4;
+opts.numepochs = 50;
+opts.plot = 0;
 
-% Train
-[neuralNet, L] = nntrain(neuralNet, selectFeatures, yTrain, opts);
+% K fold cross validation
+printf('10 fold cross validation...');
+fflush(stdout);
 
-L
+index = 1:size(mergedData, 1);
+index = index(randperm(length(index)));
+part = int32(size(mergedData, 1) / 10);
+
+for i = 1:10
+	startP = part * (i - 1) + 1;
+	testData = mergedData(index(startP:startP + part - 1), 1:12);
+	yTest = targetedOutput(index(startP:startP + part - 1), :);
+	trainData = mergedData(:, 1:12);
+	trainData(index(startP:startP + part), :) = [];
+	yTrain = targetedOutput;
+	yTrain(index(startP:startP + part), :) = [];
+
+	opts.batchsize = size(yTrain, 1) / 2;
+
+	features = [trainData(:, 1) trainData(:, 12)];
+	testFeatures = [testData(:, 1) testData(:, 12)];
+
+	[neuralNet, L] = nntrain(neuralNet, features, yTrain, opts);
+	[err, bad] = nntest(neuralNet, testFeatures, yTest);
+
+	err
+	fflush(stdout);
+endfor
+
+printf(' Done\n');
+fflush(stdout);
+
+% Test
+% printf('Predicting...');
+% fflush(stdout);
+% predictions = [];
+% for i = 1:numTestSamples
+% 	predictions = [predictions ; nnpredict(neuralNet, normTestFeatures(i,:))];
+% endfor
+% printf(' Done\n');
+% fflush(stdout);
+
+% printf('Saving predictions to file...');
+% fflush(stdout);
+% save vanillaNNTanhPredictions.txt predictions;
+% printf(' Done\n');
+% fflush(stdout);
