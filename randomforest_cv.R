@@ -40,7 +40,8 @@ randomforestcv <- function(k) {
     predictions <- testans$predicted
     
     #Calculate Classification Accuracy
-    accuracy < - mean(ifelse(predicitons == factor(test[,response]), 1, 0))
+    classifications <- ifelse(predictions == factor(test[,response]), 1, 0)
+    accuracy <- mean(classifications)
     
     cat("Classification Accuracy: ")
     cat(accuracy)
