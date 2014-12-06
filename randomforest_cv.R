@@ -1,6 +1,6 @@
 library(randomForest)
 
-# K-Fold Cross Validation
+# mtry vs. OOB
 randomforestcv <- function(k) {
   OOB <- rep(0,12)
   rawdata <- read.csv("./covtype.data", header = F)
