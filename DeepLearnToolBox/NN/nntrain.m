@@ -30,7 +30,6 @@ numepochs = opts.numepochs;
 
 numbatches = m / batchsize;
 
-rem(numbatches, 1)
 assert(rem(numbatches, 1) == 0, 'numbatches must be a integer');
 
 L = zeros(numepochs*numbatches,1);
