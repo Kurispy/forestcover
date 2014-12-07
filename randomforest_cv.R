@@ -42,22 +42,6 @@ randomforestcv <- function(k) {
     
     OOB[i] <- err[clf$ntree,"OOB"]
     
-    #Calculate Classification Accuracy
-    classifications <- ifelse(predictions == factor(test[,response]), 1, 0)
-    accuracy <- mean(classifications)
-    
-    #cat("mtry: ", i, "\n")
-    #cat("Classification Accuracy: ", accuracy, clf$test$err.rate[clf$ntree, "Test"], "\n")
-    #cat(colnames(err), "\n")
-    #cat("OOB err rate: ", err[40,1], "\n")
-    
-    #print(clf)
-    
-    #plot(clf)
-    rm(list = c("clf","train","test","testans","classifications","accuracy", "err"))   
-    #return(clf)
-    # auc = roc.area(test[,1], prediction)$A
-    # print("AUC = ", auc)
   }
-  plot(1:12, OOB, type = 'b', xlab = "mtry")
+  plot(1:12, OOB, type = 'b', xlab = "mtry", main = "No. of variables sampled at each split vs. OOB error rate")
 }

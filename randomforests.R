@@ -36,6 +36,8 @@ randomforest <- function(k,end = 40) {
   
   ##################
   
+ # mt <- tuneRF(x = train[,cols],y = factor(train[,response]),mtryStart = 3,ntreeTry = 40,stepFactor= 2, improve = 0.05, plot = TRUE)
+  
   clf <- randomForest(x = train[,cols], 
                       y = factor(train[,response]),
                       xtest = test[,cols],
