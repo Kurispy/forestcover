@@ -1,6 +1,6 @@
 library(randomForest)
 
-# K-Fold Cross Validation
+# Trees vs Error
 randomforesttt <- function(k,end = 40) {
   
   rawdata <- read.csv("./covtype.data", header = F)
