@@ -20,6 +20,8 @@ randomforest <- function(k,end = 40) {
   
   data = cbind(rawdata[,1:10],wilderness_area,soil_type,rawdata[,55])
   
+  colnames(data)[1:12] <- c("Elevation","Aspect", 'Slope', 'Hori_Dist_Hydro','Vert_Dist_Hydro','Hori_Dist_Road','Hillshade9am','Hillshadenoon','Hillshade3pm','Hori_Dist_Fire', 'Wilderness_Area','Soil_Type')
+  
   cols = names(data)[1:12]
   #print(cols[c(-11)])
   response <- names(data)[13]
@@ -54,13 +56,13 @@ randomforest <- function(k,end = 40) {
   
   imp <- round(importance(clf, type = 1), 2)
   
-  print(imp)  
+  print(imp)
   
   varImpPlot(clf,type = 1)
   
   ord <- order(imp[,1], decreasing = FALSE)
   
-  impcols <- ord[-(1:4)]
+  impcols <- ord[-(1:3)] #changing this will affect how many variables to excluse from the second run
   
   impclf <- randomForest(x = train[,impcols], 
                          y = factor(train[,response]),
