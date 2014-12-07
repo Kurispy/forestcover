@@ -21,8 +21,8 @@ randomforest <- function(k,end = 40) {
   data = cbind(rawdata[,1:10],wilderness_area,soil_type,rawdata[,55])
   
   cols = names(data)[1:12]
+  #print(cols[c(-11)])
   response <- names(data)[13]
-  impcols = cols[c(-1,-10,-6)]
   #########################
   
   ##sample data##
@@ -44,14 +44,7 @@ randomforest <- function(k,end = 40) {
                       importance = TRUE,
                       keep.forest = TRUE)
   
-  impclf <- randomForest(x = train[,impcols], 
-                         y = factor(train[,response]),
-                         xtest = test[,impcols],
-                         ytest = factor(test[,response]),
-                         mtry = 7,
-                         ntree = end,
-                         importance = TRUE,
-                         keep.forest = TRUE)
+  
   
   testans <- clf$test
   
@@ -64,6 +57,19 @@ randomforest <- function(k,end = 40) {
   print(imp)  
   
   varImpPlot(clf,type = 1)
+  
+  ord <- order(imp[,1], decreasing = FALSE)
+  
+  impcols <- ord[-(1:4)]
+  
+  impclf <- randomForest(x = train[,impcols], 
+                         y = factor(train[,response]),
+                         xtest = test[,impcols],
+                         ytest = factor(test[,response]),
+                         mtry = 7,
+                         ntree = end,
+                         importance = TRUE,
+                         keep.forest = TRUE)
   
   testmat <- cbind(clf$test$err.rate[, "Test"], impclf$test$err.rate[, "Test"])
   print(nrow(testmat))
