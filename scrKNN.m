@@ -10,70 +10,6 @@ data = load('covtype.data');
 % Merge redundant columns...
 numSamples = size(data, 1);
 numClasses = 7;
-mergedData = zeros(numSamples, 14);
-%13);
-for i = 1:numSamples
-	% Copy over the initial features...
-	for j = 1:10
-		mergedData(i, j) = data(i, j);
-    end
-	
-	% Wilderness area merge
-	for j = 11:14
-		if (data(i, j) == 1)
-			mergedData(i, 11) = j - 11;
-			break
-		end
-    end
-
-	% Soil type merge
-    % The values correspond to "climactic zone" and "geologic zone"
-    % described in covtype.info
-	for j = 15:54
-		if (data(i, j) == 1)
-			if (j <= 20)
-                mergedData(i,12) = 2; 
-                mergedData(i,13) = 7;
-            elseif (j <= 22)
-                mergedData(i,12) = 3; 
-                mergedData(i,13) = 5;
-            elseif (j <= 23)
-                mergedData(i,12) = 4; 
-                mergedData(i,13) = 2;
-            elseif (j <= 27)
-                mergedData(i,12) = 4; 
-                mergedData(i,13) = 7;
-            elseif (j <= 29)
-                mergedData(i,12) = 5; 
-                mergedData(i,13) = 1;
-            elseif (j <= 31)
-                mergedData(i,12) = 6; 
-                mergedData(i,13) = 1;
-            elseif (j <= 32)
-                mergedData(i,12) = 6; 
-                mergedData(i,13) = 7;
-            elseif (j <= 35)
-                mergedData(i,12) = 7; 
-                mergedData(i,13) = 1;
-            elseif (j <= 37)
-                mergedData(i,12) = 7; 
-                mergedData(i,13) = 2;
-            elseif (j <= 48)
-                mergedData(i,12) = 7; 
-                mergedData(i,13) = 7;
-            elseif (j <= 54)
-                mergedData(i,12) = 8; 
-                mergedData(i,13) = 7;
-            else
-                assert(false);
-            end
-           break;
-		end
-    end
-
-	% Cover type
-	mergedData(i, 14) = data(i, 55);
-end
 
 
 %testIdx=15121:1:581012;
@@ -88,10 +24,10 @@ classification = data(:, 55);
 
 %for getting up to speed, I'm going to trim the dataset to 10% of its
 %original size.
-idx = crossvalind('holdout',classification,0.95);
+%idx = crossvalind('holdout',classification,0.95);
 
-features=features(idx,:);
-classification=classification(idx,:);
+%features=features(idx,:);
+%classification=classification(idx,:);
 
 %% end of trimming
 
