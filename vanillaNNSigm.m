@@ -25,15 +25,6 @@ endfor
 printf(' Done\n');
 fflush(stdout);
 
-% Construct 3 layer ANN with 5 hidden nodes and 7 output nodes for all 12 features
-% Using L2 regularization
-neuralNet = nnsetup([size(mergedData, 2) - 1 5 numClasses]);
-neuralNet.activation_function = 'sigm';
-neuralNet.learningRate = 1.5;
-neuralNet.weightPenaltyL2 = 1e-4;
-opts.numepochs = 50;
-opts.plot = 0;
-
 % K fold cross validation
 printf('10 fold cross validation...');
 fflush(stdout);
@@ -44,20 +35,28 @@ part = int32(size(mergedData, 1) / 10);
 
 for i = 1:10
 	startP = part * (i - 1) + 1;
-	testData = mergedData(index(startP:startP + part - 1), 1:12);
-	yTest = targetedOutput(index(startP:startP + part - 1), :);
+	endP = startP + part - 1;
+	testData = mergedData(index(startP:endP), 1:12);
+	yTest = targetedOutput(index(startP:endP), :);
+
 	trainData = mergedData(:, 1:12);
-	trainData(index(startP:startP + part), :) = [];
+	trainData(index(startP:endP), :) = [];
 	yTrain = targetedOutput;
-	yTrain(index(startP:startP + part), :) = [];
+	yTrain(index(startP:endP), :) = [];
 
-	opts.batchsize = size(yTrain, 1) / 2;
+	% Construct 3 layer ANN with 5 hidden nodes and 7 output nodes for all 12 features
+	% Using L2 regularization
+	clear neuralNet
+	neuralNet = nnsetup([size(trainData, 2) 5 numClasses]);
+	neuralNet.activation_function = 'sigm';
+	neuralNet.learningRate = 1.5;
+	neuralNet.weightPenaltyL2 = 1e-4;
+	opts.numepochs = 50;
+	opts.batchsize = 569;
+	opts.plot = 1;
 
-	features = trainData(:, 1:12);
-	testFeatures = testData(:, 1:12);
-
-	[neuralNet, L] = nntrain(neuralNet, features, yTrain, opts);
-	[err, bad] = nntest(neuralNet, testFeatures, yTest);
+	[neuralNet, L] = nntrain(neuralNet, trainData, yTrain, opts);
+	[err, bad] = nntest(neuralNet, testData, yTest);
 
 	err
 	fflush(stdout);

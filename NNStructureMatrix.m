@@ -44,11 +44,12 @@ for layer = 1:3
 		[2 repmat(nodes, 1, layer) numClasses]
 		fflush(stdout);
 
+		clear neuralNet;
 		neuralNet = nnsetup([2 repmat(nodes, 1, layer) numClasses]);
 		neuralNet.activation_function = 'sigm';
 		neuralNet.learningRate = 1.5;
 		neuralNet.weightPenaltyL2 = 1e-4;
-		opts.numepochs = 50;
+		opts.numepochs = 100;
 		opts.plot = 0;
 		opts.batchsize = 104;
 
