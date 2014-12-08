@@ -118,16 +118,17 @@ kVal = [1 2 4 6 8 10 12 14 16]';
 numKs = size(kVal,1);
 
 for ii=1:numKs
-	errRAW=knncl([],xTr, yTr,xTe,yTe,kVal(ii,1));fprintf('\n');
+	teErrAllK(ii,1) = kVal(ii,1);       % Let's remember what K is for our result set.
+    errRAW=knncl([],xTr, yTr,xTe,yTe,kVal(ii,1));fprintf('\n');
 	fprintf('Percentage of test set correctly categorized (basic KNN, k = %d): %f\n', kVal(ii,1), 1-errRAW(2));
-	teErrAllK(ii,1) = 1-errRAW(2);
+	teErrAllK(ii,2) = 1-errRAW(2);
 	
 	fprintf('Learning initial metric with LMNN ...')
 	[L,~] = lmnn2(xTr, yTr, kVal(ii,1), 'maxiter',500, 'validation', 0.05, 'subsample', 0.1);
 	errL=knncl(L,xTr, yTr,xTe,yTe,4);fprintf('\n');
 
 	fprintf('Percentage of test set correctly categorized (LMNN, k = %d): %f\n', kVal(ii,1), 1-errL(2));
-	teErrAllK(ii,2) = 1-errL(2);
+	teErrAllK(ii,3) = 1-errL(2);
 	
 end 
 
