@@ -1,8 +1,10 @@
 library(randomForest)
+library(pROC)
 
 # Trees vs Error
-randomforesttt <- function(k,end = 40) {
-  
+randomforesttt <- function(k = 10,end = 40, auc = FALSE) {
+  k = 10
+  end = 40
   rawdata <- read.csv("./covtype.data", header = F)
   
   s = nrow(rawdata)
@@ -36,6 +38,8 @@ randomforesttt <- function(k,end = 40) {
   
   clf <- randomForest(x = train[,cols], y = factor(train[,response]), xtest = test[,cols], ytest = factor(test[,response]), mtry = 7, ntree = end)
   
+  print(clf$test$confusion)
+  
   testans <- clf$test
   
   err <- clf$err.rate
@@ -46,5 +50,8 @@ randomforesttt <- function(k,end = 40) {
 
   matplot(1:clf$ntree, testmat, type = "l", xlab = "Trees", ylab = "Error", col = 1:2, main = "No. of trees vs. Error rates")
   legend("topright", legend = c("OOB", "Test"), lty = c(1,1), lwd = c(2.5,2.5), col = 1:2)
-
+  
+  if(auc){
+    multiclass.roc(test[,response],as.numeric(levels(predictions)[predictions]))
+  }
 }
