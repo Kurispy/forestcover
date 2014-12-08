@@ -8,10 +8,78 @@ run('setpaths.m');
 data = load('covtype.data');
 rand('seed',55);
 
+
 % Merge redundant columns...
 numSamples = size(data, 1);
 numClasses = 7;
+mergedData = zeros(numSamples, 17);
 
+for i = 1:numSamples
+	% Copy over the initial features...
+	for j = 1:14
+		mergedData(i, j) = data(i, j);
+    end
+	
+	% Wilderness area merge
+	%for j = 11:14
+%		if (data(i, j) == 1)
+%			mergedData(i, 11) = j - 11;
+%			break
+%		end
+ %   end
+
+	% Soil type merge
+    % The values correspond to "climactic zone" and "geologic zone"
+    % described in covtype.info
+	for j = 15:54
+		if (data(i, j) == 1)
+			if (j <= 20)
+                mergedData(i,15) = 2; 
+                mergedData(i,16) = 7;
+            elseif (j <= 22)
+                mergedData(i,15) = 3; 
+                mergedData(i,16) = 5;
+            elseif (j <= 23)
+                mergedData(i,15) = 4; 
+                mergedData(i,16) = 2;
+            elseif (j <= 27)
+                mergedData(i,15) = 4; 
+                mergedData(i,16) = 7;
+            elseif (j <= 29)
+                mergedData(i,15) = 5; 
+                mergedData(i,16) = 1;
+            elseif (j <= 31)
+                mergedData(i,15) = 6; 
+                mergedData(i,16) = 1;
+            elseif (j <= 32)
+                mergedData(i,15) = 6; 
+                mergedData(i,16) = 7;
+            elseif (j <= 35)
+                mergedData(i,15) = 7; 
+                mergedData(i,16) = 1;
+            elseif (j <= 37)
+                mergedData(i,15) = 7; 
+                mergedData(i,16) = 2;
+            elseif (j <= 48)
+                mergedData(i,15) = 7; 
+                mergedData(i,16) = 7;
+            elseif (j <= 54)
+                mergedData(i,15) = 8; 
+                mergedData(i,16) = 7;
+            else
+                assert(false);
+            end
+           break;
+		end
+    end
+
+	% Cover type
+	mergedData(i, 17) = data(i, 55);
+end
+
+features = mergedData;
+features(:,17) = [];
+classification = mergedData(:, 17);
 
 %testIdx=15121:1:581012;
 %testIdx=testIdx';
@@ -19,9 +87,9 @@ numClasses = 7;
 %testIdx = testData(:,1);
 %testData = mergedTestData;
 
-features = data;
-features(:,55) = [];
-classification = data(:, 55);
+%features = data;
+%features(:,55) = [];
+%classification = data(:, 55);
 
 %for getting up to speed, I'm going to trim the dataset to 10% of its
 %original size.
@@ -32,7 +100,7 @@ classification = data(:, 55);
 
 %% end of trimming
 
-[train,test] = crossvalind('holdout',classification,0.5);
+[train,test] = crossvalind('holdout',classification,0.25);
 
 % Pull out the training set
 xTr = features(train,:)';   
