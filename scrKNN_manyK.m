@@ -125,7 +125,7 @@ for ii=1:numKs
 	
 	fprintf('Learning initial metric with LMNN ...')
 	[L,~] = lmnn2(xTr, yTr, kVal(ii,1), 'maxiter',500, 'validation', 0.05, 'subsample', 0.1);
-	errL=knncl(L,xTr, yTr,xTe,yTe,4);fprintf('\n');
+	errL=knncl(L,xTr, yTr,xTe,yTe,kVal(ii,1));fprintf('\n');
 
 	fprintf('Percentage of test set correctly categorized (LMNN, k = %d): %f\n', kVal(ii,1), 1-errL(2));
 	teErrAllK(ii,3) = 1-errL(2);
