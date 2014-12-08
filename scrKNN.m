@@ -6,6 +6,7 @@ addpath(LMNNPath);
 cd(LMNNPath);
 run('setpaths.m');
 data = load('covtype.data');
+rand('seed',55);
 
 % Merge redundant columns...
 numSamples = size(data, 1);
@@ -55,21 +56,16 @@ yTe=classification(test,:)';
 %noticks;box on;
 %drawnow
 
-
-
-labels = doKNNClassification(xTr', yTr', xTe');
-success = labels == yTe';
-
-pctCorrect = sum(success) / size(xTe',1);
-fprintf('Percentage of test set correctly categorized (basic KNN): %f\n', pctCorrect);
+errRAW=knncl([],xTr, yTr,xTe,yTe,4);fprintf('\n');
+fprintf('Percentage of test set correctly categorized (basic KNN): %f\n', 1-errRAW(2));
 
 % Call LMNN to get the initiate linear transformation
 fprintf('\n')
-disp('Learning initial metric with LMNN ...')
-[L,~] = lmnn2(xTr, yTr, 'maxiter',500);
+fprintf('Learning initial metric with LMNN ...')
+[L,~] = lmnn2(xTr, yTr, 4, 'maxiter',1000, 'validation', 0.1, 'subsample', 0.1);
 %,3,L0,'maxiter',1000,'quiet',1,'outdim',3,'mu',0.5,'validation',0.2,'earlystopping',25,'subsample',0.3);
 % KNN classification error after metric learning using LMNN
-errL=knncl(L,xTr, yTr,xTe,yTe,1);fprintf('\n');
+errL=knncl(L,xTr, yTr,xTe,yTe,4);fprintf('\n');
 
 fprintf('Percentage of test set correctly categorized (LMNN): %f\n', 1-errL(2));
 
@@ -85,14 +81,14 @@ fprintf('Percentage of test set correctly categorized (LMNN): %f\n', 1-errL(2));
 %noticks;box on;
 %drawnow
 
-fprintf('\n')
-fprintf('Learning nonlinear metric with GB-LMNN ... \n')
-embed=gb_lmnn(xTr,yTr,3,L,'ntrees',200,'verbose',true);
+%fprintf('\n')
+%fprintf('Learning nonlinear metric with GB-LMNN ... \n')
+%embed=gb_lmnn(xTr,yTr,3,L,'ntrees',200,'verbose',true);
 %,'XVAL',xVa,'YVAL',yVa);
 
 % KNN classification error after metric learning using gbLMNN
-errGL=knncl([],embed(xTr), yTr,embed(xTe),yTe,1);fprintf('\n');
-fprintf('Percentage of test set correctly categorized (GB-LMNN): %f\n', 1-errGL(2));
+%errGL=knncl([],embed(xTr), yTr,embed(xTe),yTe,1);fprintf('\n');
+%fprintf('Percentage of test set correctly categorized (GB-LMNN): %f\n', 1-errGL(2));
 %subplot(3,2,5);
 %scat(embed(xTr),3,yTr);
 %title(['GB-LMNN Training (Error: ' num2str(100*errGL(1),3) '%)'])
