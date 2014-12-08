@@ -93,10 +93,10 @@ classification = mergedData(:, 17);
 
 %for getting up to speed, I'm going to trim the dataset to 10% of its
 %original size.
-idx = crossvalind('holdout',classification,0.95);
+%idx = crossvalind('holdout',classification,0.95);
 
-features=features(idx,:);
-classification=classification(idx,:);
+%features=features(idx,:);
+%classification=classification(idx,:);
 
 %% end of trimming
 
