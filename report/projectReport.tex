@@ -58,30 +58,51 @@ and tanh function
 T(t) = 1.7159tanh(\frac{2}{3}t)
 \end{equation}
 as our activation function.
-\item Predictiing Results
+\item Predicting Results Using 12 features
 \begin{itemize}
 
-\item Sigmoid function:
+\item Sigmoid function: Train: 0.198, Test: 0.276
 
-\item Tanh function: 
+\item Tanh function: Train: 0.196, Test: 0.27
+
+\end{itemize}
+\item Here is an Error Rate plot\\
+\includegraphics[scale=0.4]{3-5-7With12Error}
+
+\item Here is a ROC plot
+
+\item 7 AUC and weighted AUC
+
 
 \end{itemize}
 
-\item An alternative structure: 3 layers(1 hidden layer), 7 hidden nodes, and 7 output nodes, and use L2 regularization. And the predictiing results are the following:
+\subsection*{$\S$ Alternative Structure ANN}
+For ANN, in general, the predition accuracy should improve when adding more hidden layer and/or hidden nodes. Thus we construct a improved ANN with 2 hidden layers, where there are 19 hidden nodes on the 1st hidden layer and 23 on the 2nd hidden layer. The activation functions are the same.
+\begin{itemize}
+\item Predicting Results Using 12 features
 \begin{itemize}
 
-\item Sigmoid function:
+\item Sigmoid function: Prediction Accuracy: 80.7%
 
-\item Tanh function: 
-\end{itemize}
-\end{itemize}
+\item Tanh function: ??
 
+\end{itemize}
+\item Here is an Error Rate plot\\
+Need the 3D plot here
+
+
+\item Here is a ROC plot
+
+\item 7 AUC and weighted AUC
+\end{itemize}
 
 \subsection*{$\S$ Feature Selected ANN}
-Instead of using all 12 features, we decide to use less feature which are relatively independent to each other. We first contructed a feature scatter plot to observe the dependency of features. (we are not sure which one's to delete for now)
-%\includegraphics[scale=0.4]{featureScatterPlotMatrixHD}
+Instead of using all 12 features, we decide to use less feature which are relatively independent to each other. We first contructed a feature scatter plot to observe the dependency of features.\\
+\\
+\includegraphics[scale=0.4]{featureScatterPlotMatrixHD}
 
 
+The dependency and correlation of different features are not obvious. So we tested on a few cases, in which the prediction result aren't imporoved.
 
 \begin{itemize}
 \item 

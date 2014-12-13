@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.5)  7 DEC 2014 14:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.5)  12 DEC 2014 22:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -265,23 +265,43 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 47.
+
+<image/3-5-7With12Error.png, id=1, 556.0775pt x 417.56pt>
+File: image/3-5-7With12Error.png Graphic file (type png)
+
+<use image/3-5-7With12Error.png>
+Package pdftex.def Info: image/3-5-7With12Error.png used on input line 70.
+(pdftex.def)             Requested size: 222.42705pt x 167.02103pt.
  [1
 
-{/usr/local/texlive/2014basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./projectReport.aux)
+{/usr/local/texlive/2014basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./
+image/3-5-7With12Error.png>]
+<image/featureScatterPlotMatrixHD.png, id=16, 1162.3425pt x 677.53125pt>
+File: image/featureScatterPlotMatrixHD.png Graphic file (type png)
+
+<use image/featureScatterPlotMatrixHD.png>
+Package pdftex.def Info: image/featureScatterPlotMatrixHD.png used on input lin
+e 102.
+(pdftex.def)             Requested size: 464.92877pt x 271.00769pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--103
+
+ []
+
+[2 <./image/featureScatterPlotMatrixHD.png>] [3] (./projectReport.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.72pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 3838 strings out of 494522
- 56050 string characters out of 6167205
- 120350 words of memory out of 5000000
- 7065 multiletter control sequences out of 15000+600000
+ 3850 strings out of 494522
+ 56396 string characters out of 6167205
+ 119350 words of memory out of 5000000
+ 7073 multiletter control sequences out of 15000+600000
  10016 words of font info for 36 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 37i,4n,32p,340b,223s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,5n,32p,340b,223s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb></usr/local/texlive/2014basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mbx12.pfb></usr/local/texlive/2014basic/texmf-dist/fonts/type1/public/amsfonts/
@@ -290,10 +310,10 @@ nts/cm/cmmi8.pfb></usr/local/texlive/2014basic/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmr10.pfb></usr/local/texlive/2014basic/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014basic/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy8.pfb>
-Output written on projectReport.pdf (1 page, 71371 bytes).
+Output written on projectReport.pdf (3 pages, 184717 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
- 25 compressed objects within 1 object stream
+ 46 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
