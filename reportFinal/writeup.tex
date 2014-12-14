@@ -54,22 +54,18 @@ The PR curves are similar in that several output nodes have very high AUPRC valu
 \includegraphics[width=\linewidth]{images/PR_comp.png} 
 The multiclass confusion matrix revealed that there was a lot of misclassificaiton between Spruce and Lodgepole pine.  Cottonwood/Willow, Aspen, and Douglas-Fir were all misclassified the majority of the time.
 \begin{center}
-
-\begin{tabular}{|l||c|c|c|c|c|c|c|}
+\begin{tabular}{|c | c| c| c| c| c |c| c|}
 \hline
-
-&\textbf{Spruce} & \textbf{Lodgepole} & \textbf{Ponderosa} & \textbf{Cottonwood} &\textbf{Aspen} & \textbf{Douglas}& \textbf{Krummholz} \\
-&\textbf{Fir}&\textbf{Pine}&\textbf{Pine}&\textbf{/Willow}&{}&\textbf{-fir}&{}\\ \hline
-&166919 & 42605 & 16 & 3 & 47 & 34 & 2216 \\ \hline
-&28706 & 250128 & 2821 & 8 & 310 & 996 & 330 \\ \hline
-&22 & 3140 & 30817 & 196 & 0 & 1579 & 0 \\ \hline
-&0 & 11 & 1671 & 863 & 0 & 202 & 0 \\ \hline
-&471 & 7176 & 288 & 0 & 1529 & 29 & 0 \\ \hline
-&124 & 4303 & 8558 & 110 & 1 & 4271 & 0 \\ \hline
-&5031 & 518 & 0 & 0 & 0 & 0 & 14961 \\ \hline
-\hline % inserts single horizontal line
+ & Observed& Observed& Observed& Observed& Observed& Observed& Observed \\ \hline
+True Class & Sp.-Fir & L. Pine & P. Pine & C./Willow & Aspen & D.-Fir & Krum \\ \hline
+Sp.-Fir & \textbf{166919} & 42605 & 16 & 3 & 47 & 34 & 2216 \\ \hline
+L. Pine & 28706 & \textbf{250128} & 2821 & 8 & 310 & 996 & 330 \\ \hline
+P. Pine & 22 & 3140 &  \textbf{30817} & 196 & 0 & 1579 & 0 \\ \hline
+C./W. & 0 & 11 & 1671 &  \textbf{863} & 0 & 202 & 0 \\ \hline
+Asp. & 471 & 7176 & 288 & 0 &  \textbf{1529} & 29 & 0 \\ \hline
+D.-Fir & 124 & 4303 & 8558 & 110 & 1 &  \textbf{4271} & 0 \\ \hline
+Krum. & 5031 & 518 & 0 & 0 & 0 & 0 &  \textbf{14961} \\ \hline
 \end{tabular}
-
 \end{center}
 
 \section{Discussion}

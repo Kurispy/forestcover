@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.5)  14 DEC 2014 02:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.5)  14 DEC 2014 02:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -221,39 +221,95 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )) [1
 
-{/usr/local/texlive/2014basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1
-] <images/flow.png, id=13, 864.22874pt x 1219.55624pt>
-File: images/flow.png Graphic file (type png)
+{/usr/local/texlive/2014basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-<use images/flow.png>
+LaTeX Warning: Citation `blackard00' on page 1 undefined on input line 16.
+
+
+LaTeX Warning: Citation `gama03' on page 1 undefined on input line 16.
+
+
+LaTeX Warning: Citation `oza01' on page 1 undefined on input line 16.
+
+
+LaTeX Warning: Citation `giannella' on page 1 undefined on input line 16.
+
+
+LaTeX Warning: Citation `furnkranz' on page 1 undefined on input line 16.
+
+
+LaTeX Warning: Citation `obradovic' on page 1 undefined on input line 16.
+
+
+LaTeX Warning: Citation `klami' on page 1 undefined on input line 16.
+
+
+LaTeX Warning: Citation `ross04' on page 1 undefined on input line 20.
+
+
+LaTeX Warning: Citation `bache13' on page 1 undefined on input line 22.
+
+
+LaTeX Warning: Citation `jock99' on page 1 undefined on input line 22.
+
+[1]
+
+LaTeX Warning: Citation `bache13' on page 2 undefined on input line 26.
+
+<images/flow.png, id=14, 864.22874pt x 1219.55624pt>
+File: images/flow.png Graphic file (type png)
+ <use images/flow.png>
 Package pdftex.def Info: images/flow.png used on input line 27.
 (pdftex.def)             Requested size: 360.0pt x 508.00452pt.
- [2] [3 <./images/flow.png>]
-<images/Rplot.png, id=22, 860.21375pt x 547.04375pt>
+
+[2]
+
+LaTeX Warning: Citation `rbp12' on page 3 undefined on input line 31.
+
+[3 <./images/flow.png>]
+
+LaTeX Warning: Citation `liaw02' on page 4 undefined on input line 37.
+
+
+LaTeX Warning: Citation `breiman01' on page 4 undefined on input line 37.
+
+
+LaTeX Warning: Citation `breiman96' on page 4 undefined on input line 41.
+
+
+LaTeX Warning: Citation `breiman01' on page 4 undefined on input line 41.
+
+
+LaTeX Warning: Citation `breiman96' on page 4 undefined on input line 41.
+
+
+LaTeX Warning: Citation `breiman96' on page 4 undefined on input line 41.
+
+<images/Rplot.png, id=23, 860.21375pt x 547.04375pt>
 File: images/Rplot.png Graphic file (type png)
  <use images/Rplot.png>
 Package pdftex.def Info: images/Rplot.png used on input line 44.
 (pdftex.def)             Requested size: 360.0pt x 228.93878pt.
 
-[4] <images/shallow.png, id=27, 1204.5pt x 903.375pt>
+[4] <images/shallow.png, id=28, 1204.5pt x 903.375pt>
 File: images/shallow.png Graphic file (type png)
  <use images/shallow.png>
 Package pdftex.def Info: images/shallow.png used on input line 48.
 (pdftex.def)             Requested size: 360.0pt x 269.99455pt.
 
-<images/deep4.png, id=28, 1204.5pt x 903.375pt>
+<images/deep4.png, id=29, 1204.5pt x 903.375pt>
 File: images/deep4.png Graphic file (type png)
  <use images/deep4.png>
 Package pdftex.def Info: images/deep4.png used on input line 50.
 (pdftex.def)             Requested size: 360.0pt x 269.99455pt.
 
-<images/ROC_comp.png, id=29, 1204.5pt x 903.375pt>
+<images/ROC_comp.png, id=30, 1204.5pt x 903.375pt>
 File: images/ROC_comp.png Graphic file (type png)
  <use images/ROC_comp.png>
 Package pdftex.def Info: images/ROC_comp.png used on input line 52.
 (pdftex.def)             Requested size: 360.0pt x 269.99455pt.
 
-<images/PR_comp.png, id=30, 1204.5pt x 903.375pt>
+<images/PR_comp.png, id=31, 1204.5pt x 903.375pt>
 File: images/PR_comp.png Graphic file (type png)
  <use images/PR_comp.png>
 Package pdftex.def Info: images/PR_comp.png used on input line 54.
@@ -261,82 +317,93 @@ Package pdftex.def Info: images/PR_comp.png used on input line 54.
 
 [5 <./images/Rplot.png>] [6 <./images/shallow.png>] [7 <./images/deep4.png>]
 [8 <./images/ROC_comp.png>]
-Overfull \hbox (99.64111pt too wide) in paragraph at lines 58--72
+Overfull \hbox (103.82921pt too wide) in paragraph at lines 57--69
  [] 
  []
 
-<images/description.png, id=45, 893.3375pt x 903.375pt>
+<images/description.png, id=46, 893.3375pt x 903.375pt>
 File: images/description.png Graphic file (type png)
 
 <use images/description.png>
-Package pdftex.def Info: images/description.png used on input line 79.
+Package pdftex.def Info: images/description.png used on input line 75.
 (pdftex.def)             Requested size: 360.0pt x 364.04533pt.
 
-<images/featureScatterPlotMatrixHD.png, id=46, 1162.3425pt x 677.53125pt>
+<images/featureScatterPlotMatrixHD.png, id=47, 1162.3425pt x 677.53125pt>
 File: images/featureScatterPlotMatrixHD.png Graphic file (type png)
 
 <use images/featureScatterPlotMatrixHD.png>
 Package pdftex.def Info: images/featureScatterPlotMatrixHD.png used on input li
-ne 81.
+ne 77.
 (pdftex.def)             Requested size: 360.0pt x 209.84642pt.
 
-<images/tanh.png, id=47, 1204.5pt x 903.375pt>
+<images/tanh.png, id=48, 1204.5pt x 903.375pt>
 File: images/tanh.png Graphic file (type png)
  <use images/tanh.png>
-Package pdftex.def Info: images/tanh.png used on input line 83.
+Package pdftex.def Info: images/tanh.png used on input line 79.
 (pdftex.def)             Requested size: 360.0pt x 269.99455pt.
  [9 <./images/PR_comp.png>] [10 <./images/description.png>] [11 <./images/featu
-reScatterPlotMatrixHD.png> <./images/tanh.png>] [12]
+reScatterPlotMatrixHD.png> <./images/tanh.png>]
+
+LaTeX Warning: Citation `lan07' on page 12 undefined on input line 84.
+
+[12]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--137
+Underfull \hbox (badness 10000) in paragraph at lines 131--133
 []\OT1/cmr/m/n/10.95 Ross Meen-te-meyer, David Rizzo, Wal-ter Mark, Eliz-a-beth
 
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 135--137
+Underfull \hbox (badness 5475) in paragraph at lines 131--133
 \OT1/cmr/m/n/10.95 Lotz, Map-ping the risk of es-tab-lish-ment and spread of su
 d-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--137
+Underfull \hbox (badness 10000) in paragraph at lines 131--133
 \OT1/cmr/m/n/10.95 den oak death in Cal-i-for-nia, For-est Ecol-ogy and Man-age
 -
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 135--137
+Underfull \hbox (badness 2042) in paragraph at lines 131--133
 \OT1/cmr/m/n/10.95 ment, Vol-ume 200, Is-sues 13, 25 Oc-to-ber 2004, Pages 195-
 214,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--137
+Underfull \hbox (badness 10000) in paragraph at lines 131--133
 \OT1/cmr/m/n/10.95 ISSN 0378-1127, http://dx.doi.org/10.1016/j.foreco.2004.06.0
 21.
  []
 
-[13] [14] (./writeup.aux) ) 
+[13] [14] (./writeup.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2698 strings out of 494522
- 39263 string characters out of 6167205
- 102541 words of memory out of 5000000
- 5931 multiletter control sequences out of 15000+600000
+ 2697 strings out of 494522
+ 39257 string characters out of 6167205
+ 101486 words of memory out of 5000000
+ 5930 multiletter control sequences out of 15000+600000
  10307 words of font info for 37 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  38i,7n,23p,928b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014basic/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014basic/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014basic/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014basic/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014basic/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2014basic/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on writeup.pdf (15 pages, 635307 bytes).
+</usr/local/texlive/2014basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+0.pfb></usr/local/texlive/2014basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx12.pfb></usr/local/texlive/2014basic/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/local/texlive/2014basic/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb></usr/local/texlive/2014basic/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr12.pfb></usr/local/texlive/2014basic/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr17.pfb>
+Output written on writeup.pdf (15 pages, 631759 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
