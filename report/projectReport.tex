@@ -41,7 +41,7 @@ Predicting forest cover type from cartographic variables. There are 12 features 
 \section*{Method 1: ANN}
 
 
-\subsection*{$\S$ Plain ANN}
+\subsection*{$\S$ ANN}
 
 \begin{itemize}
 \item Structure of the ANN:
@@ -69,15 +69,16 @@ as our activation function.
 \item Here is an Error Rate plot\\
 \includegraphics[scale=0.4]{3-5-7With12Error}
 
-\item Here is a ROC plot
+\item Here is a ROC plot\\
 
-\item 7 AUC and weighted AUC
+
+
 
 
 \end{itemize}
 
-\subsection*{$\S$ Alternative Structure ANN}
-For ANN, in general, the predition accuracy should improve when adding more hidden layer and/or hidden nodes. Thus we construct a improved ANN with 2 hidden layers, where there are 19 hidden nodes on the 1st hidden layer and 23 on the 2nd hidden layer. The activation functions are the same.
+\subsection*{$\S$ Improved ANN}
+For ANN, in general, the predition accuracy should improve when adding more hidden layer and/or hidden nodes. Thus we construct a improved ANN with 2 hidden layers, where there are 25 hidden nodes on the 1st hidden layer and 19 on the 2nd hidden layer. The activation functions are the same.
 \begin{itemize}
 \item Predicting Results Using 12 features
 \begin{itemize}
@@ -91,9 +92,31 @@ For ANN, in general, the predition accuracy should improve when adding more hidd
 Need the 3D plot here
 
 
-\item Here is a ROC plot
+\item Here is a ROC plot\\
+\includegraphics[scale=0.45]{ANNROCall}
 
-\item 7 AUC and weighted AUC
+\item abc\\
+\begin{table} [h]
+\caption{Confusion Matrix} % title of Table
+\centering
+
+
+\begin{tabular}{c c c c c c c}
+\hline\hline %inserts double horizontal lines
+Predicted1 & Predicted2 & Predicted3 & Predicted4 & Predicted5 & Predicted6& Predicted7 \\ [0.5ex] 
+\hline % inserts single horizontal line
+166919 & 42605 & 16 & 3 & 47 & 34 & 2216 \\
+28706 & 250128 & 2821 & 8 & 310 & 996 & 330 \\
+22 & 3140 & 30817 & 196 & 0 & 1579 & 0 \\
+0 & 11 & 1671 & 863 & 0 & 202 & 0 \\
+471 & 7176 & 288 & 0 & 1529 & 29 & 0 \\
+124 & 4303 & 8558 & 110 & 1 & 4271 & 0 \\
+5031 & 518 & 0 & 0 & 0 & 0 & 14961 \\
+\hline % inserts single horizontal line
+\end{tabular}
+\end{table}
+
+
 \end{itemize}
 
 \subsection*{$\S$ Feature Selected ANN}
