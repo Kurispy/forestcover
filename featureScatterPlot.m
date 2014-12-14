@@ -6,7 +6,7 @@ addpath(genpath('common'));
 
 % Load the train data if needed
 if (exist('mergedData', 'var') == 0)
-	loadTrainData;
+	loadData;
 end
 
 featureNames = ['Elevation'; 'Aspect'; 'Slope'; 'H Hydrology'; 'V Hydrology'; 'H Roads'; 'Hillshade 9AM'; 'Hillshade 12PM'; 'Hillshade 3PM';
@@ -21,6 +21,7 @@ set(gcf,'PaperPositionMode','auto');
 set(gcf, 'units', 'pixels', 'position', [0 0 1920 1080]);
 
 count = 1;
+features = mergedData(:, 1:12);
 numFeatures = size(features, 2);
 
 % Generate colors for our features
@@ -33,19 +34,19 @@ for i = 1:numFeatures
 			hist(features(:, i));
 		else
 			hold on
-			p = plot(spruce(:, i + 1), spruce(:, j + 1), '.', 'MarkerSize', 5);
+			p = plot(spruce(:, i), spruce(:, j), '.', 'MarkerSize', 5);
 			set(p, 'color', colorOrder(1,:));
-			p = plot(lodgepolePine(:, i + 1), lodgepolePine(:, j + 1), '.', 'MarkerSize', 5);
+			p = plot(lodgepolePine(:, i), lodgepolePine(:, j), '.', 'MarkerSize', 5);
 			set(p, 'color', colorOrder(2,:));
-			p = plot(ponderosaPine(:, i + 1), ponderosaPine(:, j + 1), '.', 'MarkerSize', 5);
+			p = plot(ponderosaPine(:, i), ponderosaPine(:, j), '.', 'MarkerSize', 5);
 			set(p, 'color', colorOrder(3,:));
-			p = plot(willow(:, i + 1), willow(:, j + 1), '.', 'MarkerSize', 5);
+			p = plot(willow(:, i), willow(:, j), '.', 'MarkerSize', 5);
 			set(p, 'color', colorOrder(4,:));
-			p = plot(aspen(:, i + 1), aspen(:, j + 1), '.', 'MarkerSize', 5);
+			p = plot(aspen(:, i), aspen(:, j), '.', 'MarkerSize', 5);
 			set(p, 'color', colorOrder(5,:));
-			p = plot(douglas(:, i + 1), douglas(:, j + 1), '.', 'MarkerSize', 5);
+			p = plot(douglas(:, i), douglas(:, j), '.', 'MarkerSize', 5);
 			set(p, 'color', colorOrder(6,:));
-			p = plot(krummholz(:, i + 1), krummholz(:, j + 1), '.', 'MarkerSize', 5);
+			p = plot(krummholz(:, i), krummholz(:, j), '.', 'MarkerSize', 5);
 			set(p, 'color', colorOrder(7,:));
 			hold off
 		endif
