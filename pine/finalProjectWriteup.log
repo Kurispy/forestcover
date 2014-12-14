@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.11)  14 DEC 2014 15:05
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.11)  14 DEC 2014 15:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**projectWriteupFinal.tex
-(./projectWriteupFinal.tex
+**finalProjectWriteup.tex
+(./finalProjectWriteup.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 2 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -55,7 +55,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-(./projectWriteupFinal.aux
+(./finalProjectWriteup.aux
 
 LaTeX Warning: Label `fig:chapter001_dist_001' multiply defined.
 
@@ -93,7 +93,7 @@ LaTeX Warning: Label `fig:chapter001_dist_001' multiply defined.
 LaTeX Warning: Label `fig:chapter001_reward_001' multiply defined.
 
 )
-\openout1 = `projectWriteupFinal.aux'.
+\openout1 = `finalProjectWriteup.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
@@ -180,14 +180,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 23.
-
-
-LaTeX Warning: Citation `matlabpage' on page 1 undefined on input line 23.
-
-
-LaTeX Warning: Citation `sayad' on page 1 undefined on input line 23.
-
-[1]
+ [1]
 
 LaTeX Warning: Citation `weinberger' on page 2 undefined on input line 34.
 
@@ -338,7 +331,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 237--238
 []\OT1/cmr/m/n/10.95 Dr Saed Sayad. K Near-est Neigh-bors, 2010, http://chem-
  []
 
-[20] [21] (./projectWriteupFinal.aux)
+[20] [21] (./finalProjectWriteup.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -349,7 +342,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  1588 strings out of 495028
  23495 string characters out of 6181496
- 79274 words of memory out of 5000000
+ 79284 words of memory out of 5000000
  4792 multiletter control sequences out of 15000+600000
  9409 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -364,7 +357,7 @@ t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
 public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb>
-Output written on projectWriteupFinal.pdf (22 pages, 802723 bytes).
+Output written on finalProjectWriteup.pdf (22 pages, 802681 bytes).
 PDF statistics:
  133 PDF objects out of 1000 (max. 8388607)
  81 compressed objects within 1 object stream
