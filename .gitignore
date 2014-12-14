@@ -2,3 +2,4 @@ covtype.data
 .Rhistory
 .RData
 .RDataTmp
+*.csv
